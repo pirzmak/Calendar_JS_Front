@@ -1,0 +1,33 @@
+.loginContainer {
+  width: 100vw;
+  height: 100vw;
+  padding: 10rem;
+  text-align: center;
+  position: absolute;
+}
+
+.loginOuter {
+  width: 15vw;
+  height: 20vm;
+  min-width: 15rem;
+  background-color: #cccce9;
+  color: darkblue;
+  padding: 1rem;
+  display: table;
+  margin: 0 auto;
+  border-radius: 3px;
+}
+
+.loginInner {
+  text-align: left;
+}
+
+.loginButton {
+  float: right;
+  border: 1px solid darkgreen;
+  color: green;
+}
+
+.loginButton:hover {
+  background-color: lightgreen;
+}

@@ -1,0 +1,101 @@
+.calendarTable {
+  width: calc(100% - 1rem);
+  font-weight: normal;
+  height: calc(100% - 4.5rem);
+  position: absolute;
+  min-width: 60rem;
+  min-height: 30rem;
+  top: 4rem;
+  left: 0.5rem;
+  text-align: center;
+  border-collapse: separate;
+}
+
+.calendarTableRow {
+  height: 20%;
+}
+
+.calendarTableHeaderRow {
+  height: 2vw;
+}
+
+.headerRect{
+  border-radius: 3px;
+  background-color: #cccce9;
+  color: darkblue;
+}
+
+.headerColumn{
+  border-radius: 3px;
+  background-color: #cccce9;
+  color: darkblue;
+}
+
+.rectButton{
+  background-color: #cce6e6;
+  color: darkblue;
+  cursor: pointer;
+}
+
+.rectButton:hover {
+  background-color: #7c9696;
+}
+
+.oneDayRect{
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 0;
+  width: 13%;
+}
+
+.marginTop{
+  margin-top: 0.5rem;
+}
+
+.dayLabel{
+  border-bottom: 1px solid;
+  text-align: center;
+}
+
+.eventsList{
+  height: 80%;
+  padding: 0.2rem;
+  overflow: auto;
+}
+
+.oneEvent{
+  border: 1.5px solid darkgreen;
+  color: green;
+  text-align: center;
+  padding: 0.1rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.toDay{
+  background-color: #cce6e6;
+}
+
+.oneEvent:hover{
+  background-color: lightgreen;
+}
+
+.settingsWindow {
+  width: 20vw;
+  position: fixed;
+  right: 0;
+  min-width: 15rem;
+  height:  calc(100% - 3rem);
+  background-color: white;
+  box-shadow: -2px 8px 17px 0 grey;
+}
+
+.loadingRect {
+  text-align: center;
+}
+
+.loading {
+  color: lightgreen;
+  font-size: 10vw;
+}
+

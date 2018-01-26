@@ -1,0 +1,46 @@
+<div class="settingsContainer">
+  <div class="settingsHeader">Ustawienia<span><i class="extButton" (click)="close()">x</i></span></div>
+  <div class="settingsContent">
+    <div class="form-group">
+      <label class="myLabel" [ngClass]="{error: !correctTitle}">Tytuł:</label>
+      <input type="text" class="form-control" [ngClass]="{error: !correctTitle}" [ngModel]="appointment.title"
+             (input)="appointment.title = $event.target.value"
+             (change)="titleValidate()">
+    </div>
+    <div class="form-group">
+      <label class="myLabel">Opis:</label>
+      <textarea class="form-control" rows="5" [ngModel]="appointment.description"
+                (input)="appointment.description = $event.target.value"></textarea>
+    </div>
+    <div class="form-group timeGroup">
+      <label class="myLabel" [ngClass]="{error: !correctDate}" >Od:</label>
+      <div>
+        <input type="number" class="form-control time" min="0" max="23"
+               [ngModel]="fromHours" [ngClass]="{error: !correctDate}"
+               (input)="fromHours = $event.target.value"
+               (change)="dateValidate()">:
+        <input type="number" class="form-control time" min="0" max="59"
+               [ngModel]="fromMinute" [ngClass]="{error: !correctDate}"
+               (input)="fromMinute = $event.target.value"
+               (change)="dateValidate()">
+      </div>
+    </div>
+    <div class="form-group timeGroup timeContainerRight">
+      <label class="myLabel" [ngClass]="{error: !correctDate}" >Do:</label>
+      <div>
+        <input type="number" class="form-control time" min="0" max="23"
+               [ngModel]="toHours" [ngClass]="{error: !correctDate}"
+               (input)="toHours = $event.target.value"
+               (change)="dateValidate()">:
+        <input type="number" class="form-control time" min="0" max="59"
+               [ngModel]="toMinute" [ngClass]="{error: !correctDate}"
+               (input)="toMinute = $event.target.value"
+               (change)="dateValidate()">
+      </div>
+    </div>
+    <div class="footer">
+      <button (click)="onDelete()" class="btn btn-warning" *ngIf="appointment.aggregateId.id !== -1">Usuń</button>
+      <button (click)="submit()" class="btn btn-default submitButton">Zapisz</button>
+    </div>
+  </div>
+</div>

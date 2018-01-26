@@ -1,3 +1,39 @@
-<h1>
-  {{title}}
-</h1>
+<div *ngIf="logged && !loaded" class="loadingRect">
+  <span class="loading">LOADING...</span>
+</div>
+<div class="header">
+  <button  *ngIf="logged" (click)="onLogout()" class="btn btn-warning logoutButton">Wyloguj</button>
+</div>
+
+<table class="calendarTable" *ngIf="logged">
+  <tr class="calendarTableHeaderRow">
+    <th class="rectButton" (click)="prevWeek()">Prev</th>
+    <th *ngFor="let day of weekDays" class="headerRect">{{day}}</th>
+    <th class="rectButton" (click)="prevWeek()">Prev</th>
+  </tr>
+  <tr *ngFor="let week of daysEvents" class="calendarTableRow">
+    <th class="headerColumn"><div>W</div> <div class="marginTop">{{week.getWeekNumber()}}</div></th>
+    <td *ngFor="let day of week.week" class="oneDayRect" [ngClass]="{'toDay': day.isToday()}">
+      <div class="dayLabel">{{day.toSimplyDate()}}</div>
+      <div class="eventsList" (click)="clickEmpty($event, day.day)">
+      <div class="oneEvent" *ngFor="let app of day.appointments" (click)="clickNoEmpty(app.aggregateId, $event)">{{app.toString()}}</div>
+      </div>
+    </td>
+    <th class="headerColumn"><div>W</div> <div class="marginTop">{{week.getWeekNumber()}}</div></th>
+  </tr>
+  <tr class="calendarTableHeaderRow">
+    <th class="rectButton" (click)="nextWeek()">Next</th>
+    <th *ngFor="let day of weekDays" class="headerRect">{{day}}</th>
+    <th class="rectButton" (click)="nextWeek()">Next</th>
+  </tr>
+</table>
+<div class="settingsWindow" *ngIf="appointmentIsSelected">
+  <app-settings [appointment]="selectedAppointment"
+                [addNewAppointment]="addNewAppointment"
+                [updateAppointment]="updateAppointment"
+                [deleteAppointment]="deleteAppointment"
+                [onFailure]="onFailure"
+                [onSuccess]="onSuccess"
+                [close]="closeConfirm"></app-settings>
+</div>
+<app-login *ngIf="!logged" [loginApp]="onLogin"></app-login>

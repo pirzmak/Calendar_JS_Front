@@ -1,0 +1,11 @@
+<div class="loginContainer">
+  <div class="loginOuter">
+    <div class="loginInner">
+      <div class="form-group">
+        <label class="myLabel">Login:</label>
+        <input type="text" class="form-control" [ngModel]="login" (input)="login = $event.target.value"/>
+      </div>
+      <button (click)="loginTo()" class="btn btn-default loginButton">Login</button>
+    </div>
+  </div>
+</div>

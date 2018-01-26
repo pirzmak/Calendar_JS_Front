@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-size: calc(12px + 0.3vw)  !important;
+}
+
+button {
+  cursor: pointer;
+}
+
+.header {
+  background-color: darkgray;
+  height: 3rem;
+  padding: 0.5rem;
+}
+
+.logoutButton {
+  float: right;
+  font-size: calc(12px + 0.1vw);
+}
